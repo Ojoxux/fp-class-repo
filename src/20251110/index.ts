@@ -27,7 +27,7 @@ class TipCalculator {
 
   // 名前の個数をカウントして、チップの割合を設定する
   // if文じゃなくて、三項演算子で書いた
-  public coundNames(names: string[]): number {
+  public countNames(names: string[]): number {
     return names.length > 5
       ? (this.tipPercentage = 20)
       : names.length > 0
@@ -54,7 +54,7 @@ tipCalculator.addPerson("e");
 tipCalculator.addPerson("f");
 tipCalculator.addPerson("g");
 
-tipCalculator.coundNames(tipCalculator.getNames());
+tipCalculator.countNames(tipCalculator.getNames());
 
 console.log(tipCalculator.getNames());
 console.log(tipCalculator.getTipPercentage());
