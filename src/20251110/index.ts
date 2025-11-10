@@ -7,32 +7,15 @@ class TipCalculator {
   private names: string[] = [];
   private tipPercentage: number = 0;
 
-  // MEMO: 名前を追加する以外にも、名前の個数をカウントしたり、チップの割合を設定する処理があったため、関数を分離した
   public addPerson(name: string): void {
     this.names.push(name);
+    this.tipPercentage = this.calculateTipPercentage(this.names.length);
   }
 
-  /**
-   *
-   * 元のコード
-   * public addPerson(name: string): void {
-   *   this.names.push(name);
-   *   if (this.names.length > 5) {
-   *     this.tipPercentage = 20;
-   *   } else if (this.names.length > 0) {
-   *     this.tipPercentage = 10;
-   *   }
-   * }
-   */
-
-  // 名前の個数をカウントして、チップの割合を設定する
-  // if文じゃなくて、三項演算子で書いた
-  public countNames(names: string[]): number {
-    return names.length > 5
-      ? (this.tipPercentage = 20)
-      : names.length > 0
-      ? (this.tipPercentage = 10)
-      : (this.tipPercentage = 0);
+  private calculateTipPercentage(personCount: number): number {
+    if (personCount > 5) return 20;
+    if (personCount > 0) return 10;
+    return 0;
   }
 
   public getNames(): string[] {
@@ -54,7 +37,30 @@ tipCalculator.addPerson("e");
 tipCalculator.addPerson("f");
 tipCalculator.addPerson("g");
 
-tipCalculator.countNames(tipCalculator.getNames());
-
 console.log(tipCalculator.getNames());
 console.log(tipCalculator.getTipPercentage());
+
+/**
+ * 元のコード
+ * class TipCalculator {
+ *   private names: string[] = [];
+ *   private tipPercentage: number = 0;
+ *
+ *   public addPerson(name: string): void {
+ *     this.names.push(name);
+ *     if (this.names.length > 5) {
+ *       this.tipPercentage = 20;
+ *     } else if (this.names.length > 0) {
+ *       this.tipPercentage = 10;
+ *     }
+ *   }
+ *
+ *   public getNames(): string[] {
+ *     return this.names;
+ *   }
+ *
+ *   public getTipPercentage(): number {
+ *     return this.tipPercentage;
+ *   }
+ * }
+ */
