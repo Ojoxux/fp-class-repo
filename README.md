@@ -10,10 +10,20 @@ npx ts-node src/YYYYMMDD/typescript/index.ts
 
 ## Scala の実行方法
 
+### 日付を指定して実行
+
 ```bash
-# コンパイル
+./scala-run.sh 20251112 Main
+
+# OR
+sbt -Ddate=20251112 compile
+sbt -Ddate=20251112 "runMain Main"
+```
+
+### すべてのフォルダをコンパイル
+
+```bash
 sbt compile
 
-# 実行
 sbt "runMain Main"
 ```
