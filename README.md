@@ -13,17 +13,19 @@ npx ts-node src/YYYYMMDD/typescript/index.ts
 ### 日付を指定して実行
 
 ```bash
+# これが1番楽
 ./scala-run.sh 20251112 Main
 
-# OR
-sbt -Ddate=20251112 compile
+# OR これもできる
 sbt -Ddate=20251112 "runMain Main"
 ```
 
 ### すべてのフォルダをコンパイル
 
 ```bash
+# コンパイル
 sbt compile
 
+# 実行
 sbt "runMain Main"
 ```
