@@ -1,4 +1,4 @@
-# fp-class
+# fp-class repository
 
 関数型プログラミングの学習用リポジトリです。TypeScript と Scala の両方でコードを書けます。
 
